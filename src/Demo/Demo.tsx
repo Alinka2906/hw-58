@@ -2,13 +2,12 @@ import React, {useState} from 'react';
 import Modal from "../components/UI/Modal/Modal";
 import Alert from "../components/UI/Alert/Alert";
 
-interface SomeHandlerParams {
-  type: any;
-}
 
 const Demo: React.FC = () => {
   const [modalShow, setModalShow] = useState(false);
-  const [alertShow, setAlertShow] = useState(false)
+  const [alertShow, setAlertShow] = useState(false);
+
+
 
   const onClose = () => {
     setModalShow(false);
@@ -18,23 +17,18 @@ const Demo: React.FC = () => {
     setModalShow(true);
   };
 
+  const onDismiss = () => {
+    setAlertShow(false);
+  };
+
   const alertShowHandler = () => {
     setAlertShow(true);
   };
 
-  const continued = () => {
-    window.alert('You clicked continue')
-  };
-
-  // const [showDangerAlert, setShowDangerAlert] = useState(true);
-  // const [showWarningAlert, setShowWarningAlert] = useState(true);
-  // const [showSuccessAlert, setShowSuccessAlert] = useState(true);
-  // const [showPrimaryAlert, setShowPrimaryAlert] = useState(true);
-  //
-  // const DANGER = 'danger';
-  // const WARNING = 'warning';
-  // const SUCCESS = 'success';
-  // const PRIMARY = 'primary';
+  const Warning = 'Warning';
+  const Danger = 'Danger';
+  const Success = 'Success';
+  const Primary = 'Primary';
 
   return (
     <div>
@@ -55,7 +49,12 @@ const Demo: React.FC = () => {
         Open alert
       </button>
       </div>
-      <Alert type={} onDismiss={} show={} onClose={}
+      <div className="alert">
+      <Alert type={Warning} show={alertShow} onDismiss={onDismiss}/>
+        <Alert type={Danger} show={alertShow}/>
+        <Alert type={Success} show={alertShow}/>
+        <Alert type={Primary} show={alertShow}/>
+      </div>
     </div>
   );
 };
