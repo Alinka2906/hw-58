@@ -3,11 +3,11 @@ import React, {useState} from 'react';
 
 interface Props extends React.PropsWithChildren {
   type: string,
-  onDismiss?:React.MouseEventHandler,
+  onDismiss?: React.MouseEventHandler,
   show: boolean,
 }
 
-const Alert:React.FC<Props> = ({type, onDismiss, show}) => {
+const Alert: React.FC<Props> = ({type, onDismiss, show, children}) => {
   const Warning = 'Warning';
   const Danger = 'Danger';
   const Success = 'Success';
@@ -15,7 +15,7 @@ const Alert:React.FC<Props> = ({type, onDismiss, show}) => {
 
   if (type === Warning) {
     return <div className="alert alert-warning" style={{display: show ? 'block' : 'none'}}>{type}
-    <button onClick={onDismiss} className="ms-5 btn btn-secondary">X</button>
+      <button onClick={onDismiss} className="ms-5 btn btn-secondary">X</button>
     </div>
   }
 
@@ -32,13 +32,18 @@ const Alert:React.FC<Props> = ({type, onDismiss, show}) => {
   }
 
 
-    return (
-    <div>
-        <div className="alert">
+  return (
+    <>
+      <div className="alert">
+        <div>
           {type}
         </div>
+        <div>
+          {children}
+        </div>
+      </div>
 
-    </div>
+    </>
   );
 };
 
