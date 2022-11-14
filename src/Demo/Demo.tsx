@@ -8,8 +8,6 @@ const Demo: React.FC = () => {
   const [alertShow, setAlertShow] = useState(false);
   const [warnings, setWarnings] = useState(false);
 
-
-
   const onClose = () => {
     setModalShow(false);
   };
@@ -26,12 +24,6 @@ const Demo: React.FC = () => {
     setAlertShow(true);
     setWarnings(true);
   };
-
-  const Warning = 'Warning';
-  const Danger = 'Danger';
-  const Success = 'Success';
-  const Primary = 'Primary';
-
 
   return (
     <div>
@@ -53,10 +45,18 @@ const Demo: React.FC = () => {
         </button>
       </div>
       <div className="alert">
-        <Alert type={Warning} show={warnings} onDismiss={onDismiss}>This</Alert>
-        <Alert type={Danger} show={alertShow}><div>This</div></Alert>
-        <Alert type={Success} show={alertShow}/>
-        <Alert type={Primary} show={alertShow}/>
+        <Alert type={"Warning"} show={warnings} onDismiss={onDismiss}>
+          <p>This is a warning type alert</p>
+        </Alert>
+        <Alert type={"Danger"} show={alertShow}>
+          <p>This is a danger type alert</p>
+        </Alert>
+        <Alert type={"Success"} show={alertShow}>
+          <p>This is a success type alert</p>
+        </Alert>
+        <Alert type={"Primary"} show={alertShow}>
+          <p>This is a primary type alert</p>
+        </Alert>
       </div>
     </div>
   );
