@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Modal from "../components/UI/Modal/Modal";
 import Alert from "../components/UI/Alert/Alert";
+import Button from '../components/UI/Button/Button';
+import {type} from "os";
 
 
 const Demo: React.FC = () => {
